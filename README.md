@@ -1,4 +1,8 @@
 # Patients-Management-System
+
+--THE PROJECT IS STILL UNDER CONSTUCTION--ITS NOT FINISHED YET
+
+
 A django project that u can can do crud operations over Patient models
 
 -first of all all the information that exists on the screenshots are random and doenst correspond to real people or any other details.
