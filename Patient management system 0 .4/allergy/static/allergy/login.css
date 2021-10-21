@@ -1,0 +1,51 @@
+.grid-container{
+    display:grid;
+    grid-template-columns: auto;
+    /* border:2px solid darkorange; */
+  }
+
+  .login{
+    color:darkblue;
+    text-align: center;
+    font-size: 1.6em;
+    margin-top: 8vh;
+    margin-left: 18vw;
+    margin-right: 18vw;
+    height: 60h;
+    overflow: auto;
+    background-color: rgb(242, 250, 249);
+    border-radius: 20px;
+    
+  }
+
+  .login-message{
+    color:darkslateblue;
+    font-size: 0.6em;
+    font-family: 'Times New Roman', Times, serif;
+    
+  }
+
+  label{
+    margin-top: 2vh;
+    display: block;
+    font-size: 0.7em;
+  }
+
+  #name {
+    height:4vh;
+    width: 15vw;
+    border:5px solid darkblue;
+    border-radius: 3px;
+    margin-top: 1vh;
+  }
+  .forgot-password{
+    font-size: 0.5em;
+  }
+
+  #pass{
+    height:4vh;
+    width: 15vw;
+    border:5px solid darkblue;
+    border-radius: 3px;
+    margin-top: 1vh;
+  }

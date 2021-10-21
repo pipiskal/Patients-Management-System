@@ -1,0 +1,61 @@
+
+
+
+{% extends "base.html" %}
+
+{%block content%}
+
+
+
+
+
+
+<h2> Welcome to my App. </h2>
+
+<p> if u have an account go ahead and <a href= "{% url 'login' %}">login</a>  </p>
+<hr>
+<p> if u are new to my site plz <a href= "{%  url 'register' %}"> register</a> </p>
+
+
+
+<h3>Ignote the rest for now </h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>select an option</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"></td>
+
+            <td>
+                <a name="new_patient" id="" class="btn btn-primary" href="{% url 'add_patient' %}" role="button">Create new patient</a>
+            </td>
+            
+        </tr>
+        <tr>
+            <td scope="row"></td>
+            <td><a name="new_test" id="" class="btn btn-primary" href="#" role="button">Create new test</a></td>
+        </tr>
+        <tr>
+            <td scope="row"></td>
+            <td><a name="list_of_patients" id="" class="btn btn-primary" href="{% url 'list_of_patients' %}" role="button">List of Patients</a></td>
+        </tr>
+
+        <tr>
+            <td scope="row"></td>
+            <td><a name="LOGIN " id="" class="btn btn-primary" href="{% url 'login' %}" role="button">Login</a></td>
+        </tr>
+
+        <tr>
+            <td scope="row"></td>
+            <td><a name="REGISTER " id="" class="btn btn-primary" href="{% url 'register' %}" role="button">REGISTER</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+{%endblock content%}

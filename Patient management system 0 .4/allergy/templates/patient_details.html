@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'allergy/patientdetails.css' %}">
+
+
+    <h1 class = "patient-details-title">Πληροφορίες ασθενή</h1>
+    
+
+    <a href="/print_test/{{patient.patient_id}}" method= "GET" class ="print-test-button">Εκτύπωση Τέστ</a>
+    <p class = "return-patient-list">Επιστροφή στην λίστα  : <a href =" {% url 'list_of_patients' %}" class = "patient-link">Ασθενών</a></p>
+
+    <h3 class="extra-details-title" style="text-align: right; margin-right: 15vw;"> Ατομικό Ιστορικό Ασθενή </h3>
+
+<div class = "patient-details-atomic-history">
+    <div class ="patient-details">
+            <p> Όνομα : {{patient.first_name}} </p>
+            <p>  Επώνυμο : {{patient.last_name}}</p>
+            <p>Email : {{patient.email}}</p>
+            <p>ΑΜΚΑ : {{patient.amka}}</p>
+            <p> Τηλέφωνο : {{patient.phone_number}}</p>
+            <p>Διεύθυνση : {{patient.address}}</p>
+    </div>
+    
+    <div class = atomic>
+        
+            <article class="extra-details-atomic"> {{patient.atomic_history}}</article>
+            
+    </div>
+</div>
+
+    
+    <hr>
+
+
+    {% if all_tests_done %}
+
+    <div class = "tests-container">
+        
+
+        <div class = "all-tests-done">
+            <h3 class = "tests-title">ΟΛΑ ΤΑ ΤΕΣΤ ΠΟΥ ΕΧΟΥΝ ΠΡΑΓΜΑΤΟΠΟΙΗΘΕΙ</h3>
+            <table class = "whole-table">
+                <thead>
+                    <tr>
+                        <th>Ημερομηνία</th>
+                        <th>Όνομα Τέστ</th>
+                        <th>Ποσοστό Αλλεργίας</th>
+                    </tr>
+                </thead>
+                <tbody class = "table-body">
+                    {%for all_test_done in all_tests_done %}
+                    <tr>
+                        {% if all_test_done.foodtest %}
+                            <td>{{all_test_done.date_created}} </td>
+                            <td>{{all_test_done.foodtest}}</td>
+                            <td>{{all_test_done.allergy_grade}}</td>
+                        {% else %}
+                            <td>{{all_test_done.date_created}} </td>
+                            <td>{{all_test_done.spttest}}</td>
+                            <td>{{all_test_done.allergy_grade}}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+       
+
+        <div class ="have_allergy_tests">
+
+            <h3 class = "tests-title">ΤΑ ΤΕΣΤ ΣΤΑ ΟΠΟΙΑ Ο ΑΣΘΕΝΗΣ ΕΧΕΙ ΑΛΛΕΡΓΙΑ</h3>
+            <table class = "whole-table">
+                <thead>
+                    <tr>
+                        <th>Ημερομηνία</th>
+                        <th>Όνομα Τέστ</th>
+                        <th>Ποσοστό Αλλεργίας</th>
+                    </tr>
+                </thead>
+                <tbody class = "table-body">
+                    {%for have_allergy_test in have_allergy_tests %}
+                        {% if have_allergy_test.foodtest %}
+                            <tr>
+                                <td>{{have_allergy_test.date_created}} </td>
+                                <td>{{have_allergy_test.foodtest}}</td>
+                                <td>{{have_allergy_test.allergy_grade}}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td>{{have_allergy_test.date_created}} </td>
+                                <td>{{have_allergy_test.spttest}}</td>
+                                <td>{{have_allergy_test.allergy_grade}}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% else %}
+
+
+    <h2 class = "message-no-tests-done">Δεν έχουν πραγματοποιηθεί ακόμα τέστ σε αυτό τον ασθενή</h2>
+
+    {% endif %}
+
+    
+
+        
+        <h3 class="extra-details-title"> Φαρμακευτική Αγωγή......... </h3>
+        <article class="extra-details">{{patient.medication}}</article> 
+
+        
+        <h3 class="extra-details-title"> Αντικειμενική Εξέταση......... </h3>
+        <article class="extra-details">{{patient.objective_examination}}</article> 
+
+        
+        <h3 class="extra-details-title"> Θεραπεία......... </h3>
+        <article class="extra-details">{{patient.treatment}}</article> 
+
+
+       
+        <h3 class="extra-details-title"> Διάγνωση.........</h3>
+        <article class="extra-details"> {{patient.diagnose}}</article>
+
+
+{% endblock content %}
+

@@ -1,0 +1,146 @@
+.patient-list-container{
+    color:white;
+
+}
+.title{
+    font-size: 2em;
+    text-align: center;
+}
+
+.welcoming-message{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1vw;
+    margin-left: 2vw;
+  
+}
+
+.logged-name{
+    font-size: 1.3vw;
+    margin: 0 0.2vw;
+    text-transform: capitalize;
+    
+}
+
+.seperation{
+    color:darkslategray;
+    margin-left : 1vw;
+    margin-right : 1vw;
+    
+    
+}
+
+.page-options{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: left;
+    
+    
+}
+
+
+.search-bars{
+    box-shadow: 0 0 5px #ccc;
+    color:white;
+    margin-top:5vh;
+    margin-bottom: 4vh;
+    margin-right: 4vw;
+    margin-left: 4vw;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+.search-bar{
+    border: 3px solid white;
+    border-radius: 10px;
+
+}
+
+.search-td{
+    padding: 0.5vw;
+    width: 14vw;
+    height: 4vh;
+    font-size: 1.1vw;
+    
+}
+
+.search-input{
+    border: 2px solid darkslategrey;
+    font-size: 1.1vw;
+    padding : 0.1vw;
+}
+
+.submit-search{
+    background-color: white;
+    padding: 0.2vw;
+    font-size: 0.8vw;
+}
+
+.whole-table{
+    width: 75vw;
+    background-color: rgb(44, 79, 88);
+    border-radius: 10px;
+    text-align: left;
+    color: white;
+    font-size: 1.2vw;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 3px solid white; 
+    margin: auto;
+    padding:1.2vw;
+    overflow: auto;
+    font-weight:500;
+    box-shadow: 0 0 5px #ccc;
+    
+    
+
+
+}
+
+.patient-table{
+    margin:auto;
+}
+
+.table-head{
+   text-align: center;
+    
+}
+
+.td-patient-action{
+    margin-left: 0.3vw;
+    color: white;
+    border: 1px solid white;
+    font-size: 1.1vw;
+    border-radius: 5px;
+    padding: 0.1vw;
+    
+
+}
+
+.td-patient-list{
+    padding: 0.5vw;
+
+}
+
+.tr-patient-list{
+    outline: thin solid;
+    
+}
+a:hover{
+    background-color: rgba(3, 117, 8, 0.918)
+}
+a:link{
+    text-decoration: none;
+}
+a:visited{
+    color: rgb(255, 255, 255)
+}
+
+.submit-selected-tests-button{
+    
+    padding: 0.4vw;
+    border-radius: 25px;
+    font-size : 1vw;
+    display: block;
+    color: rgb(2, 15, 6);
+    margin: 0 1vw;
+    background-color: rgb(255, 255, 255);
+}

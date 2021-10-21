@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'allergy/patientslist.css' %}">
+
+<div class= "patient-list-container">
+
+    {% if user.is_authenticated %}
+    <label class = "welcoming-message">Γειά σου, <label class = "logged-name">{{user.username}}</label> </label>    
+    
+        <a href = "{% url 'logout' %}" style = " color : rgb(82, 133, 79)">Αποσύνδεση</a>
+        <br>
+        <hr class =" seperation">
+    {% endif %}
+
+<div class = "page-options">
+    <button class = "submit-selected-tests-button"> 
+        <a name="new_patient" id=""  href="{% url 'add_patient'%}"  >Δημιουργία Νέου Ασθενή</a>
+    </button>
+
+    <button class = "submit-selected-tests-button"> 
+        <a href="{% url 'home'%}" >Επιστροφή Στη Λίστα Ασθενών</a>
+    </button>
+</div>
+
+    <div class= "search-bars">
+        <table>
+            <form action="{% url 'list_of_patients' %}" method="GET" class = "search-bar">
+                
+                    <tr>
+                        <td class = "search-td">
+                            <label for="search with name" class = " search-label"> Αναζήτηση με Όνομα</label>
+                        </td>
+                        <td class = "search-td">
+                            <input id = "search with name" type="text" name = "searched_for_first_name" class = "search-input"/>
+                        </td>
+                        <td class = "search-td">
+                            <input type="submit" value="Αναζήτηση" class = "submit-search"/>
+                        </td>
+                    </tr>
+                
+            </form>
+        
+
+            <form action="{% url 'list_of_patients' %}" method="GET" class = "search-bar">
+                <tr>
+                    <td class = "search-td">
+                        <label for="" class = " search-label">Αναζήτηση με Επώνυμο</label>
+                    </td>
+                    <td class = "search-td">
+                        <input type="text" input id = "search with last name" name = "searched_for_last_name" class = "search-input"> 
+                    </td>
+                    <td class = "search-td">
+                        <input type="submit" value="Αναζήτηση" class = "submit-search"/>
+                    </td>
+                </tr>
+            </form>
+        
+
+            <form action="{% url 'list_of_patients' %}" method="GET" class = "search-bar">
+                <tr>
+                    <td class = "search-td">
+                        <label for="" class = " search-label">Αναζήτηση με Τηλέφωνο</label>
+                    </td>
+                    <td class = "search-td">
+                        <input type="text" input id = "search with phone number" name = "searched_for_phone_number" class = "search-input"/>
+                    </td>
+                    <td class = "search-td">
+                        <input type="submit" value="Αναζήτηση" class = "submit-search"/>
+                    </td>
+                </tr>
+            </form>
+    </table>
+    </div>
+     <hr class =" seperation">
+
+     <h1 class="title">Πίνακας Ασθενών</h1>
+
+<div class="whole-table">
+    <table class="patient-table">
+        <thead class="table-head">
+            <tr>
+                <th>Όνομα</th>
+                <th>Επώνυμο</th>
+                <th>Τηλέφωνο</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody class="table-body">
+            {% for patient in patient_list %}
+                <tr class = "tr-patient-list">
+                    <td class = "td-patient-list">{{patient.first_name}}</td>
+                    <td class = "td-patient-list">{{patient.last_name}}</td>
+                    <td class = "td-patient-list">{{patient.phone_number}}</td>
+                    <td class = "td-patient-list">{{patient.email}}</td>
+                    <td class = "td-patient-list" ><a href="/delete/{{ patient.patient_id }}" class = "td-patient-action">Διαγραφή</a></td>
+                    <td class = "td-patient-list"><a href="/update/{{ patient.patient_id }}" action = "POST" class = "td-patient-action">Επεξεργασία</a></td>
+                    <td class = "td-patient-list"><a href="/details/{{ patient.patient_id }}" action = "GET" class = "td-patient-action">Πληροφορίες</a></td>
+                    <td class = "td-patient-list"><a href="/create_new_test/{{ patient.patient_id }}" action = "GET" class = "td-patient-action">Νέο Τέστ</a></td>
+                   
+                </tr>
+                
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
+
+</div>
+                
+{% endblock content %}

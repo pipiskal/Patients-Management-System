@@ -1,0 +1,43 @@
+
+
+{% extends "base.html" %}
+
+{%block content%}
+
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'allergy/login.css' %}">
+
+<div class="grid-container">
+  <div class="login">
+
+  <h2>Εισαγωγή Στην Πλατφόρμα</h2>
+  <p class = "login-message">Παρακαλώ πληκτρολογήστε το όνομα χρήστη και τον κωδικό σας</p>
+  
+    <form action="" method="POST"> 
+      
+      {% csrf_token %}
+
+      <label >Όνομα Χρήστη</label>
+      
+      <input type="text" id="name" name="username" placeholder="χρήστης">
+      <label >Κωδικός</label>
+      <input type="password" id="pass" name="password" placeholder="κωδικός">
+      <br><br>
+      <input type="submit" value = "login">
+
+      <input type="checkbox" id="check">    
+          <span>Remember me</span>    
+          <br><br>    
+          <p class = "forgot-password">Ξέχασες τον κωδικό?? Πάτησε <a href="#">εδώ</a> </p>
+
+    </form>
+  </div>
+</div>
+
+{% for message in messages %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}
+
+{% endblock content %}

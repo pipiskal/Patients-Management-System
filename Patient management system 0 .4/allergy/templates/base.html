@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'allergy/base.css'%}">
+    
+</head>
+<body>
+    <div class="base-container">
+        <div class ="header">
+            <h1 class="base-title">Λογισμικό Διαχείρισης Πελατών</h1>
+            <p class="suited-for-allergists">Κατάλληλο για Αλεργιολόγους</p>
+            <hr class = base-hr>
+        </div>
+
+
+        {% block content %}
+                
+
+
+        {% endblock content %}
+
+        <div class = "footer">
+            <p class="developed-by">Developed by : Kalimeris Spyros</p>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

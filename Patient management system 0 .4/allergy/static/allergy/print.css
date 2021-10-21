@@ -1,0 +1,89 @@
+.page-title{
+    font-size : 25pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin-left: 30pt;
+    margin-right: 30pt;
+    margin-bottom: 50pt;
+    text-align: center;
+}
+.date{
+    font-size : 22pt;
+}
+
+.page-container{
+    
+    margin : auto;
+    width: 1000pt;
+    
+    position: relative;
+    display: block;
+}
+
+.doctor-details{
+    font-size: 30pt;
+    color: black;
+    width: 400pt;
+    font-weight:600;
+    margin-top: 20pt;
+
+}
+
+.patient-details{
+    font-size: 28pt;
+    color: black;
+    width: 400pt;
+    font-weight:500;
+    margin-top: 20pt;
+    
+}
+.details {
+    font-family: Arial, Helvetica, sans-serif;
+    display : grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 200pt;
+
+}
+
+.table-title{
+    border: 1px solid black;
+    text-align: center;
+    font-size: 25pt;
+    margin-top: 70pt;
+}
+
+.test-table-container{
+    width: 1000pt;
+    margin: auto;  
+    
+}
+
+.test-table{
+    margin: auto;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 15pt;
+    font-size: 25pt;
+    padding: 25pt 170pt;
+    
+}
+
+.table-header{
+    font-size: 20pt;
+}
+
+td{
+    padding : 3pt
+}
+
+.signature{
+    display: block;
+    
+    text-align: right;
+    position:absolute;
+    bottom: 0;
+    right : 0;
+    margin-bottom: 0;
+}
+
+

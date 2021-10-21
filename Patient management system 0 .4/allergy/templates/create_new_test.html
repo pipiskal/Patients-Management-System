@@ -1,0 +1,118 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'allergy/createnewtest.css' %}">
+
+<h2 class="page-title">Δημιουργία Νέου Τέστ</h2>
+
+<div class = "page-information">
+<p>Θα πραγματοποιηθεί Τέστ στο ασθενή με τα παρακάτω στοιχεία. </p>
+<p>Αν τα στοιχεία που βλέπετε δεν είναι σωστά , παρακαλώ επιλέξτε το σωστό ασθενή ή διορθώστε τα από την λίστα ασθενών.</p>
+</div>
+<hr>
+
+<div class= "patient-details">
+    <ul>
+        <li class = "listitem">Όνομα : {{patient.first_name}}</li>
+        <li class = "listitem">Επώνυμο : {{patient.last_name}}</li>
+        <li class = "listitem">ΑΜΚΑ : {{patient.amka}}</li>
+    </ul>
+    
+</div>
+
+<p class= "info-message">Παρακαλώ επιλέξτε τα τεστ που θα πραγματοποιηθούν</p>
+
+
+
+<div class="testlist">
+    <form action="" method="POST" id="testform" >
+        {%csrf_token%}
+        <div class="grid-container-two">
+            <div class="food-tests">
+                <p class>ΑΛΛΕΡΓΙΟΓΟΝΑ ΤΕΣΤ</p>  
+                <hr>
+
+                {% for foodtest in foodtests %}
+                <input type="checkbox" name = "food_tests_id" value="{{foodtest.id}}" class = "checkbox-design">
+                <label for="label1" class="label-design">{{foodtest.food_test_name}}</label>
+                <br>
+                {% endfor %}                
+            </div>
+                
+            <div class = "spt-tests">
+
+                <p class ="spttest-title">SPT ΤΕΣΤ</p> 
+                <hr>
+
+                {% for spttest in spttests %}
+                <input type="checkbox" name = "spt_tests_id" value="{{spttest.id}}" class = "checkbox-design">
+                <label for="label2" class="label-design">{{spttest.spt_test_name}}</label>
+                   <br>
+                {% endfor %}
+            </div>
+        </div>   
+    </form>
+</div>
+    
+
+<button type="submit" form="testform" name = "get_tests" value="Submit" class="submit-selected-tests-button">Καταχώρηση των τεστ</button>
+
+<button  name = "selected_all_food_tests" class="submit-selected-tests-button">Επιλογή όλων (food)</button>
+<button  name = "selected_all_food_tests" class="submit-selected-tests-button">Επιλογή όλων (spt</button>
+
+
+{% if request.method == "POST" %} 
+
+<div class = "selected-tests-container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class= "table-container">
+            <table class = "wholetable">
+            <thead>
+                <tr>
+                    <th class="th-title">Όνομα Τέστ</th>
+                    <th class="th-title">Ποσοστό Αλλεργίας</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for selected_test_name in selected_test_names %}
+                <tr>
+                    
+                    
+                    <td>
+                        <input type="text" name = "selected_test_names" readonly value="{{selected_test_name}}" class = "selected-test" >
+                    </td>
+                    <td>
+                        <input type="text" name="percentage" value="0" placeholder="0"  class = "selected-test">
+                    </td>
+                    
+                </tr>
+
+                {% endfor %}
+
+                {% for food_tests_done_id in food_tests_done_ids %}
+                    <input type="hidden" id="food_tests_done_ids" name = "food_tests_done_ids" value={{food_tests_done_id}}>
+                {% endfor %}
+
+                {% for spt_tests_done_id in spt_tests_done_ids %}
+                    <input type="hidden" id="spt_tests_done_ids" name = "spt_tests_done_ids" value={{spt_tests_done_id}}>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+        <br>
+        <br>
+        <input type="submit" name="get_percentages" class = "submit-selected-tests-button">
+    </form>
+
+</div>
+{% endif %}
+
+
+<p>Επιστοφή στην λίστα των ασθενών </p>
+
+{% endblock content %}

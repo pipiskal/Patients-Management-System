@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'allergy/createnewpatient.css' %}">
+
+<h1 class="page-title">Δημιουργία νέου ασθενή</h1>
+
+<hr class="my-4">
+
+
+<div class = "container-form">
+    <div class = "form-box">
+        <form action="" method = "POST">
+            {% csrf_token %}
+            <div class ="add-patient-form-container">
+                <div class="add-patient-form">
+                    {% for field in form %}
+                        <label class="fields-label">{{field.label_tag}}</label>
+                            {{field}}
+                    {% endfor %}
+                </div> 
+                <div class="button-container">
+                    <button type="submit" class="submit-patient-button"> {{text}}</button>
+                    <button class="submit-patient-button"><a href="{% url 'home'%}">Επιστροφή</a> </button>
+                </div>
+            </div>
+            
+            <br>
+            <br>
+            <div class="button-container">
+            
+            
+
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

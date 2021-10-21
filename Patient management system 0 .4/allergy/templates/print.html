@@ -1,0 +1,82 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'allergy/print.css' %}">
+
+
+<div class="page-container">
+
+<h1 class="page-title">ΔΕΡΜΑΤΙΚΕΣ ΔΟΚΙΜΑΣΙΕΣ ΝΥΓΜΟΥ ΣΕ ΑΕΡΟΑΛΛΕΡΓΙΟΓΟΝΑ</h1>
+
+<label class="date">ΗΜΕΡΟΜΗΝΙΑ........................</label>
+
+<div class="details">
+    <div class="doctor-details">
+        <label>ΑΝΑΔΙΩΤΟΥ ΑΝΑΣΤΑΣΙΑ</label>
+        <br>
+        <label>ΕΙΔΙΚΟΣ ΑΛΛΕΡΓΙΟΛΟΓΟΣ</label>
+    </div>
+
+
+    <div class="patient-details">
+        <label>Όνομα : </label><label>{{patient.first_name}}</label>  
+        <br>
+        <label>Επώνυμο : </label><label>{{patient.last_name}}</label>  
+
+    </div>
+</div>
+
+
+<h4 class="table-title">ΠΙΝΑΚΑΣ ΑΠΟΤΕΛΕΣΜΑΤΩΝ</h4>
+
+
+<div class = "test-table-container">
+
+    <table class="test-table">
+        <thead>
+            <th class = "table-header">Ημερομηνία</th>
+            <th class="table-header">Ονομασία</th>
+            <th  class="table-header">Ποσοστό Αλλεργίας</th>
+        </thead>
+        <tbody>
+            {% for test in all_tests_done %}
+            <tr>
+                <td>
+                    
+                    {% if test.foodtest %}
+                        {{test.date_created}}
+                    {% else %}
+                        {{test.date_created}}
+                    {% endif %}
+                
+                </td>
+                <td>
+                    
+                    {% if test.foodtest %}
+                        {{test.foodtest}}
+                    {% else %}
+                        {{test.spttest}}
+                    {% endif %}
+                
+                </td>
+                <td>
+                    
+                    {% if test.foodtest %}
+                        {{test.allergy_grade}}
+                    {% else %}
+                        {{test.allergy_grade}}
+                    {% endif %}
+                    
+                </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table> 
+
+   
+</div>
+
+
+</div>
+
+<div class = "signature">
+    <p >ΥΠΟΓΡΑΦΗ.................................</p>
+</div>

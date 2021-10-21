@@ -1,0 +1,130 @@
+
+.grid-container-two{
+    border:3px solid white;
+    display:grid;
+    grid-template-columns: auto auto;
+    border-radius: 10px;
+    margin:2vw;
+    margin-top : 0;
+    margin-bottom: 0;
+    box-shadow: 0 0 20px #ccc;
+
+}
+
+.food-tests{
+    overflow-y: scroll;
+    height: 40vh;
+    padding: 3vw;
+}
+
+.spt-tests{
+    overflow-y: scroll;
+    height: 40vh;
+    padding: 3vw;
+    
+}
+
+.testlist{ 
+    color: white;
+    padding:2.1vw;
+    padding-bottom: 0.5vw;
+    
+}
+
+input[type=checkbox]:checked{
+    background: yellowgreen;
+}
+
+.checkbox-design{
+    -webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 1vh;
+	border-radius: 3px;
+    
+}
+
+.label-design{
+    font-size:1.3vw;
+}
+
+.selected-tests-container{
+    color:white;  
+}
+
+.table-container{
+    width : 70%;
+    margin: auto;
+    
+    
+}
+
+.wholetable{
+    
+    border: 3px solid white;
+    margin: auto;
+    border-radius: 10px;
+    
+}
+
+.th-title{
+    font-size: 1.1vw;
+    text-align: center;
+}
+
+
+.page-information{
+    margin-left: 4vw;
+    margin-top : 3vh;
+    margin-bottom: 3vh;
+    font-size: 1.1vw;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-title{
+    font-size: 1.3vw;
+    color: white;
+    text-shadow: 0 0 5px black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 2vh;
+}
+
+.patient-details{
+    color :white;
+    font-size: 1.3vw;
+    margin-left: 4vw;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 3px solid white;
+    width: 20vw;
+    height: 20vh;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ccc;
+}
+
+.selected-test{
+    
+    font-size: 1.1vw;
+    color : black;
+    font-family: Arial, Helvetica, sans-serif;
+    padding : 0.5vw;
+}
+
+.info-message{
+    color:white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1vw;
+    font-style: normal
+    
+}
+
+.submit-selected-tests-button{
+    border: 0.1vw solid green;
+    padding: 0.9vw;
+    border-radius: 25px;
+    font-size : 1vw;
+    margin-left: 4vw;
+    display: block;
+}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'allergy/editpatientinfo.css' %}">
+
+<div class = "patient-details">
+    <form action="" method = "POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <label class="fields-label">{{field.label_tag}}</label>
+            {{field}}
+        {% endfor %}
+        <button type="submit" class="btn btn-primary"> {{text}}</button>
+    </form>
+</div>
+
+
+<a name="" id="" class="btn btn-primary" href="{% url 'home'%}" role="button">Back Home</a>
+
+
+    <h3>THOSE ARE THE TESTS THAT THE PATIENT HAD DONE TILL NOW</h3>
+<table class="whole-table">
+    <thead>
+        <tr>
+            <th>Date Created</th>
+            <th>Tests</th>
+            <th>Percentage</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for test_done_by_patient in tests_done_by_patient %}
+            {% if test_done_by_patient.foodtest %}
+                <tr>
+                    <td>{{test_done_by_patient.date_created}} </td>
+                    <td>{{test_done_by_patient.foodtest}}</td>
+                    <td>{{test_done_by_patient.allergy_grade}}</td>
+                    <td><a href="/delete_food_test/{{ test_done_by_patient.food_tests_done_id }}">Delete Test</a></td>
+                    <td><a href="/update_food_test/{{ test_done_by_patient.food_tests_done_id }}" action = "POST">Update Test</a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>{{test_done_by_patient.date_created}} </td>
+                    <td>{{test_done_by_patient.spttest}}</td>
+                    <td>{{test_done_by_patient.allergy_grade}}</td>
+                    <td><a href="/delete_spt_test/{{ test_done_by_patient.spt_tests_done_id }}">Delete Test</a></td>
+                    <td><a href="/update_spt_test/{{ test_done_by_patient.spt_tests_done_id }}" action = "POST">Update Test</a></td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock content %}

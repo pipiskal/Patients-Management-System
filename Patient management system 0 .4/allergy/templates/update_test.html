@@ -1,0 +1,16 @@
+{{test}}
+
+<form action = "" method="POST">
+    {% csrf_token %}
+<label>date Created</label>
+<label>{{test.date_created}} </label>
+<label> Test Done </label>
+<label> {{test.foodtest}} </label>
+<label> Allergy grade </label>
+<input type= "text" value = {{test.allergy_grade}} name = "update_allergy_grade">
+
+<hr>
+
+<input type = "submit">
+
+</form>

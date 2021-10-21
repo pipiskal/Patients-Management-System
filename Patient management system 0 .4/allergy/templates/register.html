@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Registration Form{% endblock %}
+
+{% block content %}
+
+<h1 class="display-4">Register User</h1>
+<p class="lead font-italic">Medical Software to handle patients, suited for Allergists</p>
+<hr class="my-4">
+
+  <h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+
+    {% for field in  form %}
+      {{field.label}}
+      {{field}}
+      <br>
+    
+    {%endfor%}
+
+    <br>
+    <button type="submit">Sign Up</button>
+  </form>
+{% endblock %}
